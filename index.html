@@ -1,1 +1,260 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prince Gupta | Professional CA Finalist & Tax Consultant</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<style>
+/* ===== MODERN DESIGN SYSTEM ===== */
+:root {
+  --primary: #3b82f6;
+  --primary-glow: rgba(59, 130, 246, 0.5);
+  --accent: #8b5cf6;
+  --dark-bg: #030712;
+  --light-bg: #f8fafc;
+  --card-light: #ffffff;
+  --card-dark: #111827;
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+  margin:0;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  color:#334155;
+  line-height:1.6;
+  overflow-x:hidden;
+  background: var(--light-bg);
+  transition: background 0.4s ease;
+}
+
+body.dark { color:#e2e8f0; background: var(--dark-bg); }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  padding: 20px 8%; display: flex; justify-content: space-between; align-items: center;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+body.dark nav { background: rgba(3, 7, 18, 0.7); border-color: rgba(255,255,255,0.05); }
+
+.logo { 
+    font-weight: 900; font-size: 22px; color: var(--primary); text-decoration: none; 
+    letter-spacing: -1px; text-transform: uppercase;
+}
+
+/* ===== HERO SECTION ===== */
+header {
+  position:relative; min-height: 100vh; display:flex; justify-content:center; align-items:center;
+  padding: 120px 20px 80px;
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+}
+
+#particles-js {
+  position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0;
+}
+
+.hero-box {
+  position: relative; z-index: 2; text-align: center; padding: 80px 40px;
+  background: rgba(255, 255, 255, 0.6); 
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 40px;
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.05); max-width: 1000px;
+}
+
+body.dark .hero-box { 
+    background: rgba(17, 24, 39, 0.6); 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    box-shadow: 0 40px 100px -20px rgba(0,0,0,0.4);
+}
+
+/* THE "PRINCE GUPTA" HEADING STYLE */
+header h1 { 
+    font-size: clamp(48px, 10vw, 85px); 
+    margin: 10px 0 20px; 
+    font-weight: 900; 
+    line-height: 1;
+    background: linear-gradient(135deg, #2563eb 0%, #7dd3fc 50%, #2563eb 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+    letter-spacing: -4px;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* ===== BUTTONS ===== */
+.btn { 
+  display:inline-flex; align-items: center; gap: 12px;
+  padding:18px 40px; margin:10px; background: var(--primary); 
+  color:white; border-radius:16px; font-weight:700; 
+  text-decoration:none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 20px -5px var(--primary-glow);
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 20px 30px -10px var(--primary-glow); }
+
+.btn.whatsapp { 
+    background: #10b981; 
+    box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
+}
+
+/* ===== SERVICES GRID ===== */
+section { padding:120px 20px; max-width:1300px; margin:auto; }
+h2 { text-align:center; margin-bottom:70px; font-size:48px; font-weight:900; letter-spacing: -2px; }
+
+.services { display:grid; grid-template-columns: repeat(auto-fit,minmax(340px,1fr)); gap:30px; }
+.card {
+  background: var(--card-light); padding:50px 40px; border-radius:32px; 
+  border: 1px solid rgba(0,0,0,0.03); 
+  transition: all 0.4s ease;
+  position: relative; overflow: hidden;
+}
+body.dark .card { background: var(--card-dark); border-color: rgba(255,255,255,0.05); }
+
+.card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--primary);
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1);
+}
+
+.card i { 
+    font-size: 32px; color: var(--primary); margin-bottom: 30px; 
+    width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;
+    background: rgba(59, 130, 246, 0.08); border-radius: 20px;
+}
+
+/* ===== WHY CHOOSE SECTION ===== */
+.why-box { 
+    background: var(--card-light); border-radius: 40px; padding: 60px; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+body.dark .why-box { background: var(--card-dark); border-color: rgba(255,255,255,0.05); }
+
+.fomo-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.fomo-list li { 
+  padding:30px; border-radius:24px; background: rgba(59, 130, 246, 0.03);
+  border: 1px solid transparent; transition: 0.3s;
+}
+.fomo-list li:hover { background: white; border-color: var(--primary); transform: scale(1.02); }
+body.dark .fomo-list li:hover { background: #1f2937; }
+
+/* ===== UTILITIES ===== */
+.dark-toggle {
+  background: #1e293b; color:white; padding:12px 20px; border-radius:14px; 
+  cursor:pointer; font-weight:700; display: flex; align-items: center; gap: 10px;
+  transition: 0.3s;
+}
+body.dark .dark-toggle { background: #f8fafc; color: #0f172a; }
+
+footer { background:#030712; color:#64748b; text-align:center; padding:100px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+.whatsapp-float {
+  position:fixed; bottom:40px; right:40px; background:#10b981; color:white; width:70px; height:70px;
+  border-radius:22px; font-size:35px; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3); z-index:1000; transition: 0.3s;
+}
+.whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+
+@media(max-width:768px){ 
+    nav { padding: 15px 5%; }
+    header h1 { font-size: 55px; letter-spacing: -2px; }
+    .hero-box { padding: 50px 25px; border-radius: 30px; }
+    section { padding: 70px 20px; }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+
+<nav>
+    <a href="#" class="logo">PG CONSULTANCY</a>
+    <div id="darkToggle" class="dark-toggle"><i class="fas fa-sun"></i><span>Light</span></div>
+</nav>
+
+<header>
+  <div id="particles-js"></div>
+  <div class="hero-box">
+    <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 14px; font-weight: 800; color: var(--primary); margin-bottom: 15px;">Trusted Tax Partner</p>
+    <h1>Prince Gupta</h1>
+    <p style="font-size: 1.4rem; font-weight: 600;"><b>CA Finalist | Accounting & Tax Consultant</b></p>
+    <p style="opacity: 0.8;">Transforming Compliance into Clear, Hassle-Free Processes</p>
+    <div style="margin-top: 40px;">
+      <a class="btn" href="mailto:princegupta09work@gmail.com"><i class="fas fa-paper-plane"></i> Email Me</a>
+      <a class="btn whatsapp" href="https://wa.me/919311661381" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <h2>Expert Services</h2>
+  <div class="services">
+    <div class="card"><i class="fas fa-shield-alt"></i><h3>GST & Compliance</h3><p>Seamless GST Registration, GSTR Filing, reconciliation, and expert notice resolution.</p></div>
+    <div class="card"><i class="fas fa-chart-line"></i><h3>Income Tax & TDS</h3><p>Professional ITR Filing, Tax Computation, TDS Returns, and Tax Audit Finalisation.</p></div>
+    <div class="card"><i class="fas fa-book"></i><h3>Bookkeeping</h3><p>Precise Tally & Excel bookkeeping, bank reconciliations, and insightful MIS reports.</p></div>
+    <div class="card"><i class="fas fa-city"></i><h3>ROC & Incorporation</h3><p>Expert Company, LLP & HUF Incorporation and all necessary ROC filings.</p></div>
+    <div class="card"><i class="fas fa-users-cog"></i><h3>PF & ESI</h3><p>Complete handling of PF/ESI Registration and monthly compliance filing.</p></div>
+    <div class="card"><i class="fas fa-truck-loading"></i><h3>E-way Bill</h3><p>Seamless E-way Bill generation, tracking, and reconciliation for logistics.</p></div>
+  </div>
+</section>
+
+<section id="about" style="background: rgba(59, 130, 246, 0.03);">
+  <h2>About Me</h2>
+  <div class="why-box" style="text-align: center; max-width: 900px; margin: auto;">
+    <p style="font-size: 1.25rem; line-height: 1.8;">I am a <b>CA Finalist</b> specializing in GST, Income Tax, ROC, PF, ESI, E-way Bill compliance, Tax Audit & Tax Audit Finalisation, and Accounting. I help businesses simplify compliance, save time, and ensure accuracy.</p>
+  </div>
+</section>
+
+<section id="why">
+  <h2>Why Choose Me?</h2>
+  <div class="why-box">
+    <ul class="fomo-list">
+      <li><strong>✅ Expert Guidance</strong><br>Avoid costly mistakes with CA Finalist expertise.</li>
+      <li><strong>✅ Step-by-Step Clarity</strong><br>Never get stuck in confusing Tax or Audit processes.</li>
+      <li><strong>✅ Swift Handling</strong><br>Focus on your business while I handle compliance.</li>
+      <li><strong>✅ Instant Support</strong><br>Get your queries resolved quickly via WhatsApp.</li>
+      <li><strong>✅ Precision & Trust</strong><br>Ensuring 100% accuracy in every filing.</li>
+    </ul>
+    <div style="text-align:center; margin-top:60px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.05);">
+      <p style="font-weight:800; color:#2563eb; font-size: 1.5rem;">Joined hundreds of businesses who’ve simplified compliance!</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Prince Gupta | Professional Tax Consultant</p>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/919311661381" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": "#3b82f6" },
+    "opacity": { "value": 0.3 },
+    "size": { "value": 2, "random": true },
+    "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.1 },
+    "move": { "enable": true, "speed": 1.5 }
+  },
+  "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } }
+});
+
+const toggleBtn = document.getElementById('darkToggle');
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i><span>Light</span>' : '<i class="fas fa-moon"></i><span>Dark</span>';
+});
+</script>
+</body>
+</html>
