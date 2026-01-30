@@ -93,6 +93,20 @@
     .about, .why { background: white; border-radius: 12px; padding: 35px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); margin-bottom: 30px; }
     .why ul { padding-left: 20px; list-style-type: disc; }
 
+    /* FOMO list hover effect */
+    .fomo-list li {
+      padding: 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .fomo-list li:hover {
+      background: #2563eb; /* Blue background on hover */
+      color: white;        /* Text becomes white */
+      transform: translateX(5px); /* Small slide effect */
+    }
+
     footer {
       background: #0f172a;
       color: #cbd5e1;
@@ -148,7 +162,7 @@
         <p>Seamless <span class="highlight">GST Registration</span>, <span class="highlight">GSTR Filing</span>, reconciliation, and <span class="highlight">notice resolution</span> with complete clarity.</p>
       </div>
       <div class="card">
-        <h3>Income Tax & TDS/TCS</h3>
+        <h3>Income Tax & TDS</h3>
         <p>Professional handling of <span class="highlight">ITR Filing</span>, accurate <span class="highlight">Tax Computation</span>, <span class="highlight">TDS Returns</span>, and <span class="highlight">compliance guidance</span> to simplify your taxation.</p>
       </div>
       <div class="card">
@@ -166,24 +180,24 @@
   <section>
     <h2>About Me</h2>
     <div class="about">
-      <p>I am a CA Finalist specializing in GST,TDS/TCS, Income Tax, ROC, and Accounting. I help businesses and individuals simplify compliance, save time, and ensure accuracy — turning complex processes into easy-to-follow steps.</p>
+      <p>I am a CA Finalist specializing in GST, Income Tax, ROC, and Accounting. I help businesses and individuals simplify compliance, save time, and ensure accuracy — turning complex processes into easy-to-follow steps.</p>
     </div>
   </section>
 
-  <!-- WHY CHOOSE ME -->
+  <!-- WHY CHOOSE ME (FOMO VERSION) -->
   <section>
-    <h2>Why Work With Me</h2>
+    <h2>Why You Can't Afford to Miss Out</h2>
     <div class="why">
-      <ul>
+      <ul class="fomo-list">
         <li>✅ <strong>Expert CA Final guidance:</strong> Avoid costly mistakes and stay fully compliant.</li>
-      <li>✅ <strong>Step-by-step clarity:</strong> Never get stuck in confusing GST, Tax, or ROC processes again.</li>
-      <li>✅ <strong>Save Time & Money:</strong> Focus on your business while I handle compliance swiftly and accurately.</li>
-      <li>✅ <strong>Instant WhatsApp Support:</strong> Get your queries resolved without waiting days.</li>
-      <li>✅ <strong>Limited Slots:</strong> Work with me before my calendar fills up — don’t risk delays or penalties.</li>
+        <li>✅ <strong>Step-by-step clarity:</strong> Never get stuck in confusing GST, Tax, or ROC processes again.</li>
+        <li>✅ <strong>Save Time & Money:</strong> Focus on your business while I handle compliance swiftly and accurately.</li>
+        <li>✅ <strong>Instant WhatsApp Support:</strong> Get your queries resolved without waiting days.</li>
+        <li>✅ <strong>Limited Slots:</strong> Work with me before my calendar fills up — don’t risk delays or penalties.</li>
       </ul>
       <p style="text-align:center; margin-top:20px; font-weight:bold; color:#2563eb;">
-      Join hundreds of businesses and individuals who’ve simplified compliance and boosted their financial confidence!
-    </p>
+        Join hundreds of businesses and individuals who’ve simplified compliance and boosted their financial confidence!
+      </p>
     </div>
   </section>
 
