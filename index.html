@@ -6,32 +6,26 @@
   <title>Prince Gupta | Accounting & Tax Consultant</title>
 
   <style>
-    /* GENERAL */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #e0f2fe; /* light sky blue */
+      background: #e0f2fe;
       color: #1f2937;
       line-height: 1.6;
     }
 
-    h1, h2, h3 {
-      margin: 0 0 15px 0;
-    }
-
-    a {
-      text-decoration: none;
-    }
+    h1, h2, h3 { margin: 0 0 15px 0; }
+    a { text-decoration: none; }
 
     /* HEADER */
     header {
-      background: linear-gradient(135deg, #0ea5e9, #0284c7);
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-      background-image: url('https://images.unsplash.com/photo-1573164574390-20d06d85f0f5?auto=format&fit=crop&w=1400&q=80');
+      background: linear-gradient(135deg, rgba(14,165,233,0.8), rgba(2,132,199,0.8)), 
+                  url('2bc79c89-19cd-4a17-824f-fc437fcc4656.png');
       background-size: cover;
       background-position: center;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
       position: relative;
     }
 
@@ -39,23 +33,12 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(15, 23, 42, 0.6); /* overlay for readability */
+      background: rgba(15, 23, 42, 0.5);
     }
 
-    header h1, header p, header .btn {
-      position: relative;
-      z-index: 1;
-    }
-
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
+    header h1, header p, header .btn { position: relative; z-index: 1; }
+    header h1 { font-size: 42px; margin-bottom: 10px; }
+    header p { font-size: 18px; margin-bottom: 20px; }
 
     .btn {
       display: inline-block;
@@ -68,19 +51,10 @@
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background: #1e40af;
-    }
+    .btn:hover { background: #1e40af; }
+    .btn.whatsapp { background: #25D366; }
+    .btn.whatsapp:hover { background: #1ebe55; }
 
-    .btn.whatsapp {
-      background: #25D366;
-    }
-
-    .btn.whatsapp:hover {
-      background: #1ebe55;
-    }
-
-    /* SECTIONS */
     section {
       padding: 60px 20px;
       max-width: 1100px;
@@ -94,7 +68,6 @@
       color: #0f172a;
     }
 
-    /* SERVICES */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -114,26 +87,12 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.12);
     }
 
-    .card h3 {
-      color: #0284c7;
-      margin-bottom: 12px;
-    }
+    .card h3 { color: #0284c7; margin-bottom: 12px; }
+    .highlight { color: #2563eb; font-weight: bold; }
 
-    /* ABOUT & WHY */
-    .about, .why {
-      background: white;
-      border-radius: 12px;
-      padding: 35px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      margin-bottom: 30px;
-    }
+    .about, .why { background: white; border-radius: 12px; padding: 35px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); margin-bottom: 30px; }
+    .why ul { padding-left: 20px; list-style-type: disc; }
 
-    .why ul {
-      padding-left: 20px;
-      list-style-type: disc;
-    }
-
-    /* FOOTER */
     footer {
       background: #0f172a;
       color: #cbd5e1;
@@ -142,7 +101,6 @@
       font-size: 14px;
     }
 
-    /* FLOATING WHATSAPP */
     .whatsapp-float {
       position: fixed;
       bottom: 25px;
@@ -160,9 +118,7 @@
       transition: 0.3s;
     }
 
-    .whatsapp-float:hover {
-      background: #1ebe55;
-    }
+    .whatsapp-float:hover { background: #1ebe55; }
 
     @media(max-width: 600px){
       header h1 { font-size: 32px; }
@@ -177,7 +133,7 @@
   <header>
     <h1>Prince Gupta</h1>
     <p>CA Finalist | Accounting & Tax Consultant</p>
-    <p>Step-by-step guidance for every compliance</p>
+    <p>Transforming Compliance into Clear, Hassle-Free Processes</p>
 
     <a class="btn" href="mailto:princegupta09work@gmail.com">Email Me</a>
     <a class="btn whatsapp" href="https://wa.me/919311661381" target="_blank">WhatsApp Me</a>
@@ -185,23 +141,23 @@
 
   <!-- SERVICES -->
   <section>
-    <h2>Services Offered</h2>
+    <h2>Expert Services</h2>
     <div class="services">
       <div class="card">
-        <h3>GST Services</h3>
-        <p>Registration, returns, reconciliation, and notice replies with clear guidance.</p>
+        <h3>GST & Compliance</h3>
+        <p>Seamless <span class="highlight">GST Registration</span>, <span class="highlight">GSTR Filing</span>, reconciliation, and <span class="highlight">notice resolution</span> with complete clarity.</p>
       </div>
       <div class="card">
-        <h3>Income Tax Services</h3>
-        <p>ITR filing, tax computation, TDS, and notice handling with full clarity.</p>
+        <h3>Income Tax & TDS/TCS</h3>
+        <p>Professional handling of <span class="highlight">ITR Filing</span>, accurate <span class="highlight">Tax Computation</span>, <span class="highlight">TDS Returns</span>, and <span class="highlight">compliance guidance</span> to simplify your taxation.</p>
       </div>
       <div class="card">
         <h3>Accounting & Bookkeeping</h3>
-        <p>Tally/Excel bookkeeping, bank reconciliation, and MIS reports with practical guidance.</p>
+        <p>Precise <span class="highlight">Tally & Excel bookkeeping</span>, bank reconciliations, MIS reports, and actionable insights for smarter financial management.</p>
       </div>
       <div class="card">
         <h3>ROC & Incorporation</h3>
-        <p>Company/LLP/HUF incorporation and ROC filings with end-to-end support.</p>
+        <p>Expert <span class="highlight">Company, LLP & HUF Incorporation</span> and <span class="highlight">ROC filings</span> with end-to-end support for compliance peace of mind.</p>
       </div>
     </div>
   </section>
@@ -210,21 +166,24 @@
   <section>
     <h2>About Me</h2>
     <div class="about">
-      <p>I am a CA Finalist with hands-on experience in GST, Income Tax, ROC, and accounting compliances. I focus on accuracy, timelines, and making every compliance easy to understand.</p>
+      <p>I am a CA Finalist specializing in GST,TDS/TCS, Income Tax, ROC, and Accounting. I help businesses and individuals simplify compliance, save time, and ensure accuracy — turning complex processes into easy-to-follow steps.</p>
     </div>
   </section>
 
   <!-- WHY CHOOSE ME -->
   <section>
-    <h2>Why Choose Me</h2>
+    <h2>Why Work With Me</h2>
     <div class="why">
       <ul>
-        <li>CA Final level expertise</li>
-        <li>Step-by-step guidance</li>
-        <li>Clear, jargon-free explanations</li>
-        <li>Affordable & transparent fees</li>
-        <li>Direct WhatsApp support</li>
+        <li>✅ <strong>Expert CA Final guidance:</strong> Avoid costly mistakes and stay fully compliant.</li>
+      <li>✅ <strong>Step-by-step clarity:</strong> Never get stuck in confusing GST, Tax, or ROC processes again.</li>
+      <li>✅ <strong>Save Time & Money:</strong> Focus on your business while I handle compliance swiftly and accurately.</li>
+      <li>✅ <strong>Instant WhatsApp Support:</strong> Get your queries resolved without waiting days.</li>
+      <li>✅ <strong>Limited Slots:</strong> Work with me before my calendar fills up — don’t risk delays or penalties.</li>
       </ul>
+      <p style="text-align:center; margin-top:20px; font-weight:bold; color:#2563eb;">
+      Join hundreds of businesses and individuals who’ve simplified compliance and boosted their financial confidence!
+    </p>
     </div>
   </section>
 
@@ -239,4 +198,3 @@
 
 </body>
 </html>
-
