@@ -3,134 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prince Gupta | Client Portal & Vault</title>
+<title>Prince Gupta | Dashboard</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
-/* Previous Styles + New Upload Styles */
+/* PREVIOUS STYLES INCLUDED VIA INHERITANCE - ADDING DASHBOARD SPECIFIC CSS */
 :root {
   --primary: #2563eb;
   --dark-bg: #0f172a;
   --light-bg: #f0f9ff;
   --success: #22c55e;
+  --warning: #f59e0b;
 }
 
 body { margin:0; font-family:'Plus Jakarta Sans', sans-serif; background: var(--light-bg); transition: 0.5s; }
 body.dark { background: var(--dark-bg); color: #cbd5e1; }
 
+/* DASHBOARD OVERLAY */
 #dashboardView {
-  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  display: none;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: var(--light-bg); z-index: 3000; overflow-y: auto; padding: 40px 20px;
 }
 body.dark #dashboardView { background: var(--dark-bg); }
 
-.dash-container { max-width: 1000px; margin: auto; }
+.dash-container { max-width: 1100px; margin: auto; }
+.dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
 
-/* UPLOAD BOX DESIGN */
-.upload-section {
-    background: white; border-radius: 25px; padding: 40px; margin-top: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.stat-card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; }
+body.dark .stat-card { background: #1e293b; border: 1px solid #334155; }
+
+.stat-card i { font-size: 30px; color: var(--primary); margin-bottom: 10px; }
+.stat-card h3 { margin: 5px 0; font-size: 24px; }
+.stat-card p { opacity: 0.7; margin: 0; }
+
+.task-list { background: white; border-radius: 25px; padding: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+body.dark .task-list { background: #1e293b; }
+
+.task-item { 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); 
 }
-body.dark .upload-section { background: #1e293b; border: 1px solid #334155; }
+.status-pill { padding: 5px 15px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+.status-pending { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+.status-done { background: rgba(34, 197, 94, 0.1); color: var(--success); }
 
-.drop-zone {
-    border: 2px dashed var(--primary); border-radius: 20px; padding: 40px;
-    cursor: pointer; background: rgba(37, 99, 235, 0.02); transition: 0.3s;
-}
-.drop-zone:hover { background: rgba(37, 99, 235, 0.05); }
+.logout-btn { background: #ef4444; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: 700; }
 
-.file-item {
-    display: flex; justify-content: space-between; align-items: center;
-    background: #f8fafc; padding: 12px 20px; border-radius: 12px; margin-top: 15px;
-}
-body.dark .file-item { background: #0f172a; }
-
-.progress-bar {
-    width: 100%; height: 8px; background: #eee; border-radius: 10px; margin-top: 10px; overflow: hidden;
-}
-.progress-fill { width: 75%; height: 100%; background: var(--success); }
-
-/* Buttons & Header */
-.dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-.btn { background: var(--primary); color: white; padding: 12px 25px; border-radius: 12px; border: none; cursor: pointer; font-weight: 700; }
-.logout-btn { background: #ef4444; color: white; padding: 10px 20px; border-radius: 10px; border: none; cursor: pointer; }
+/* MODAL & NAV STYLES (From previous version) */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 2000; }
+.modal-overlay.active { display: flex; }
+.modal-content { background: white; padding: 40px; border-radius: 30px; width: 400px; text-align: center; }
+body.dark .modal-content { background: #1e293b; color: white; }
+.btn { background: var(--primary); color: white; padding: 12px 25px; border-radius: 12px; border: none; cursor: pointer; font-weight: 600; text-decoration: none; }
+nav { position: fixed; top: 0; width: 100%; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); z-index: 1000; }
 </style>
 </head>
 <body class="dark">
 
-<div id="homePage" style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-    <h1 style="font-size: 50px;">Prince Gupta Portal</h1>
-    <button class="btn" onclick="showDash()">Login to Secure Vault</button>
+<nav>
+    <a href="#" style="font-weight:800; color:var(--primary); text-decoration:none; font-size:20px;">PG CONSULTANCY</a>
+    <button class="btn" onclick="openModal()">Sign In</button>
+</nav>
+
+<div class="modal-overlay" id="authModal">
+    <div class="modal-content">
+        <h2>Welcome Back</h2>
+        <p>Login to access your tax dashboard</p>
+        <form onsubmit="handleLogin(event)">
+            <input type="email" placeholder="Email" style="width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd;" required>
+            <input type="password" placeholder="Password" style="width:100%; padding:12px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd;" required>
+            <button type="submit" class="btn" style="width:100%">Enter Dashboard</button>
+        </form>
+        <p style="margin-top:15px; font-size:12px; opacity:0.6;" onclick="closeModal()">Close</p>
+    </div>
 </div>
 
 <div id="dashboardView">
     <div class="dash-container">
         <div class="dash-header">
-            <h1>Document Vault</h1>
-            <button class="logout-btn" onclick="hideDash()">Logout</button>
+            <div>
+                <h1>Welcome, Client! 👋</h1>
+                <p>Here is your compliance overview for Jan 2026</p>
+            </div>
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
         </div>
 
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:20px; margin-bottom:30px;">
-            <div style="background:white; padding:20px; border-radius:20px; text-align:center;" class="card-bg">
-                <i class="fas fa-cloud-upload-alt" style="font-size:30px; color:var(--primary);"></i>
-                <h3>12 Files</h3>
-                <p style="font-size:12px; opacity:0.7;">Total Documents Uploaded</p>
-            </div>
-            <div style="background:white; padding:20px; border-radius:20px; text-align:center;" class="card-bg">
-                <i class="fas fa-shield-alt" style="font-size:30px; color:var(--success);"></i>
-                <h3>Secure</h3>
-                <p style="font-size:12px; opacity:0.7;">End-to-End Encrypted</p>
-            </div>
+        <div class="stats-grid">
+            <div class="stat-card"><i class="fas fa-file-invoice-dollar"></i><h3>02</h3><p>Pending Returns</p></div>
+            <div class="stat-card"><i class="fas fa-check-circle"></i><h3>14</h3><p>Completed Tasks</p></div>
+            <div class="stat-card"><i class="fas fa-clock"></i><h3>05 Days</h3><p>Next Deadline</p></div>
         </div>
 
-        <div class="upload-section">
-            <h2 style="margin-bottom: 10px;">Upload Compliance Docs</h2>
-            <p style="opacity: 0.7; margin-bottom: 30px;">Send your Bank Statements, Invoices, or PAN details securely.</p>
-            
-            <div class="drop-zone" onclick="document.getElementById('fileInput').click()">
-                <i class="fas fa-folder-open" style="font-size: 40px; color: var(--primary); margin-bottom: 15px;"></i>
-                <p>Drag & Drop files here or <b>Browse</b></p>
-                <input type="file" id="fileInput" style="display:none" multiple>
+        <div class="task-list">
+            <h2 style="margin-bottom: 20px;">Compliance Timeline</h2>
+            <div class="task-item">
+                <span>GST Monthly Filing (GSTR-3B)</span>
+                <span class="status-pill status-pending">Pending</span>
             </div>
-
-            <div id="fileList">
-                <div class="file-item">
-                    <span><i class="fas fa-file-pdf" style="color:#ef4444; margin-right:10px;"></i> Bank_Statement_Jan.pdf</span>
-                    <span style="color:var(--success); font-size:12px;"><i class="fas fa-check"></i> Uploaded</span>
-                </div>
-                <div class="file-item" style="flex-direction:column; align-items:start;">
-                    <div style="display:flex; justify-content:space-between; width:100%;">
-                        <span><i class="fas fa-file-image" style="color:var(--primary); margin-right:10px;"></i> GST_Invoice_001.jpg</span>
-                        <span style="font-size:12px;">75%</span>
-                    </div>
-                    <div class="progress-bar"><div class="progress-fill"></div></div>
-                </div>
+            <div class="task-item">
+                <span>Income Tax Advance Payment</span>
+                <span class="status-pill status-done">Paid</span>
+            </div>
+            <div class="task-item">
+                <span>TDS Quarterly Statement</span>
+                <span class="status-pill status-done">Filed</span>
+            </div>
+            <div class="task-item" style="border:none">
+                <span>PF/ESI Monthly Compliance</span>
+                <span class="status-pill status-pending">In Process</span>
             </div>
         </div>
 
-        <div style="text-align:center; margin-top:30px;">
-            <p>Files uploaded here are directly shared with <b>Prince Gupta</b>.</p>
+        <div style="margin-top:30px; text-align:center;">
+            <p>Need help? <a href="https://wa.me/919311661381" style="color:var(--primary); font-weight:700;">Chat with Prince Gupta</a></p>
         </div>
     </div>
 </div>
 
+<header style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+    <h1 style="font-size:60px; margin:0;">Prince Gupta</h1>
+    <p style="font-size:20px; opacity:0.8;">Professional Tax & Accounting Dashboard Integrated</p>
+    <button class="btn" style="margin-top:20px;" onclick="openModal()">Access Client Portal</button>
+</header>
+
 <script>
-function showDash() {
-    document.getElementById('homePage').style.display = 'none';
+function openModal() { document.getElementById('authModal').classList.add('active'); }
+function closeModal() { document.getElementById('authModal').classList.remove('active'); }
+
+function handleLogin(e) {
+    e.preventDefault();
+    // Simple demo logic to show dashboard
+    document.getElementById('authModal').classList.remove('active');
     document.getElementById('dashboardView').style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Stop scrolling background
 }
-function hideDash() {
-    document.getElementById('homePage').style.display = 'flex';
+
+function handleLogout() {
     document.getElementById('dashboardView').style.display = 'none';
-}
-
-// Simple simulation for file selection
-document.getElementById('fileInput').onchange = function() {
-    alert("Demo: Files selected! In a real website, these would be sent to your server.");
-};
-
-// Dark Mode logic (inherited)
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.body.classList.add('dark');
+    document.body.style.overflow = 'auto';
 }
 </script>
 
